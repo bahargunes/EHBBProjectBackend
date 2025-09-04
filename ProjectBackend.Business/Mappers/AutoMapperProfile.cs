@@ -10,7 +10,8 @@ namespace ProjectBackend.Business.Mappers
         {
             CreateMap<Platform, PlatformDTO>().ReverseMap();
             CreateMap<PlatformDTO, Platform>()
-                .ForMember(dest => dest.DateCreated, opt => opt.Ignore());
+                .ForMember(dest => dest.DateCreated, opt => opt.Ignore())
+                .ForMember(dest => dest.PlatformId, opt => opt.Ignore());
 
             // Laser
             CreateMap<Laser, LaserDTO>()
@@ -21,7 +22,7 @@ namespace ProjectBackend.Business.Mappers
             // Emitter
             CreateMap<Emitter, EmitterDTO>()
                 .ForMember(dest => dest.Modes, opt => opt.MapFrom(src => src.Modes))
-                .ReverseMap(); // DTO -> Entity yönü de ekleniyor
+                .ReverseMap(); 
             CreateMap<EmitterMode, EmitterModeDTO>().ReverseMap();
 
 
